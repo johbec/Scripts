@@ -1,8 +1,21 @@
 #!/bin/bash
+####################################################
+# Requires python-pip and pip package speedtest-cli
+# > apt update
+# > apt install python-pip
+# > pip install speedtest-cli
+####################################################
+#Author: Johan Becker
+#Copyright: Johan Becker 2019
+####################################################
 
+#Check if verbose is specified or not. Also check if user supplied anything else and inform them about usage.
 if [[ $1 =~ "-v" ]]; then
 	verbose=1 
-else 
+elif [[ ! -z "$1" ]]; then
+  echo "Usage: ./nspeedtest.sh [-v for verbose output]"
+  exit 1
+else
 	verbose=0 
 fi
 #echo $verbose
